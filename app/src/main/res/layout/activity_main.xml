@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- AppBar with logo and title -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/logo"
+            android:contentDescription="App Logo"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jhatpat Download"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginStart="8dp"
+            android:textColor="#000000"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_launcher_background"
+            android:contentDescription="Menu Icon"
+            app:tint="#000000" />
+    </LinearLayout>
+
+    <!-- Input URL -->
+    <EditText
+        android:id="@+id/url_input"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Paste YouTube playlist URL here"
+        android:background="@drawable/input_background"
+        android:padding="12dp"
+        android:textColorHint="@color/black"
+        android:layout_marginTop="12dp"
+        android:inputType="textUri" />
+
+    <!-- Playlist Info and Fetch button container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#F0F0F0"
+        android:padding="12dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="8dp"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        android:backgroundTint="#EEEEEE"
+        android:backgroundTintMode="src_in"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_gravity="center">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/playlist_title"
+                android:text="Playlist Title"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/channel_name"
+                android:text="Channel Name"
+                android:textSize="14sp"
+                android:textColor="#666666"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/fetch_button"
+            android:layout_width="96dp"
+            android:layout_height="40dp"
+            android:text="Fetch"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#007AFF"
+            android:drawablePadding="6dp" />
+
+    </LinearLayout>
+
+    <!-- Videos list -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/videos_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:scrollbars="vertical" />
+
+    <!-- Download buttons -->
+    <Button
+        android:id="@+id/download_selected_button"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="Download Selected"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:backgroundTint="#007AFF"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/download_all_button"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="Download All"
+        android:textColor="@color/white"
+        android:backgroundTint="#007AFF"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Bottom Navigation - Fixed at the bottom -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp">
+
+        <io.ak1.BubbleTabBar
+            android:id="@+id/bubbleTabBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFF"
+            android:elevation="16dp"
+            android:padding="7dp"
+            app:bubbletab_menuResource="@menu/bottom_nav_list"
+            app:bubbletab_disabled_icon_color="@color/black"
+            app:bubbletab_horizontal_padding="20dp"
+            app:bubbletab_icon_size="20dp"
+            app:bubbletab_title_size="16sp"
+            app:bubbletab_icon_padding="5sp"
+            app:bubbletab_vertical_padding="10dp"
+            app:bubbletab_tab_corner_radius="25dp">
+        </io.ak1.BubbleTabBar>
+    </FrameLayout>
+
+</LinearLayout>
